@@ -11,6 +11,8 @@ def find_stop_words_dataframe(text_data, column_name):
 
 def find_stop_words_array(text_array, categories_list):
     """
+    Returns the most frequent words from array of texts, appeared in 3 or more dicts == categories
+
     >>> find_stop_words_array(["hello guys", "hello avito", "hello moscow", "hello onotole11pewpew"], [1,1,2,3])
     ['hello']
 
