@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+# stolen from StackOverflow
 def visualize_confusion_matrix(confusion_matrix):
     norm_conf = []
     for i in confusion_matrix:
