@@ -1,6 +1,6 @@
 def find_stop_words_dataframe(text_data, column_name):
-    # same as next function, differ in input params
-    # dicts with amount of words
+    # the same as next function, differs in input params
+    # dicts with the number of words
     dicts_list = [dict(), dict(), dict(), dict()]
     for index, row in text_data.iterrows():
         c_id = find_cat(row["category_id"])
@@ -26,8 +26,8 @@ def find_stop_words_array(text_array, categories_list):
     return calculate_common_words(dicts_list)
 
 
-def calculate_common_words(dicts_list):
-    """" Return the most frequent words, appeared in 3 or more dicts == categories
+def calculate_common_words(dicts_list, words_limit=50):
+    """" Returns the "words_limit" most frequent words, appeared in 3 or more dicts == categories
 
     >>> calculate_common_words([{"a":5, "b": 2},{"a": 5, "b": 3}, {"b": 10, "c": 1}, {"d": 100}])
     ['b']
@@ -37,7 +37,7 @@ def calculate_common_words(dicts_list):
 
     for d in dicts_list:
         s = [(k, d[k]) for k in sorted(d, key=d.get, reverse=True)]
-        for k, v in s[:50]:
+        for k, v in s[:words_limit]:
             add2dict(common_words, k)
     for k, v in common_words.items():
         if v >= 3:
@@ -47,7 +47,7 @@ def calculate_common_words(dicts_list):
 
 def find_cat(number):
     """
-    Return uber category (0 to 3) by particular category (1 to 53)
+    Returns the uber category (0 to 3) by particular category (0 to 53)
 
     >>> find_cat(14)
     0

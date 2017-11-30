@@ -9,7 +9,7 @@ morph = pymorphy2.MorphAnalyzer()
 
 def clean_up(sentence):
     """
-    Return cleaned string
+    Returns cleaned string
     >>> clean_up("a1;😘2л        д")
     'a1 2л д'
 
@@ -26,7 +26,7 @@ def clean_up(sentence):
 
 def to_normal_form(word):
     """
-    Return word in initial, normal form
+    Returns a word in initial, normal form
 
     >>> to_normal_form("покупал")
     'покупать'
@@ -41,7 +41,7 @@ def to_normal_form(word):
 
 def split_transform(sentence):
     """
-    Return sentence with all words in normal forms
+    Returns a sentence with all words in normal forms
     >>> split_transform("Я покупал на avito")
     'я покупать на avito'
 
@@ -56,7 +56,7 @@ def split_transform(sentence):
 
 def prepare_processing_sentence(sentence):
     """
-    Return cleaned and transformed to normal form whole sentence
+    Returns cleaned and transformed to a normal form the whole sentence
     >>> prepare_processing_sentence("Я покупал       на;;; avito😎😎🤩")
     'я покупать на avito'
 
@@ -78,7 +78,7 @@ def prepare_processing_sentence(sentence):
 
 def prepare_processing(x_input):
     """
-    Return cleaned and transformed to normal form list of sentences
+    Returns cleaned and transformed to a normal form list of sentences
     >>> prepare_processing(["Я покупал       на;;; avito😎😎🤩", "Очень был этому рад=)))🤠"]).tolist()
     ['я покупать на avito', 'очень быть это рад']
 
