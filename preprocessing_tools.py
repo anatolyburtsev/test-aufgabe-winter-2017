@@ -6,14 +6,14 @@ ENABLE_MORPHING = False
 
 morph = pymorphy2.MorphAnalyzer()
 
+# clean_up("a1;😘2л  д") -> 'a12л д'
 def clean_up(sentence):
     debug = False
     if debug: print("input clean_up: " + sentence)
     sentence = sentence.lower()
-    cleaned_sentence = re.sub("  ", " ", re.sub("[^a-za-яё0-9 ]", " ", sentence))
+    cleaned_sentence = re.sub("  ", " ", re.sub("[^a-zа-яё0-9 ]", " ", sentence))
     if debug: print("after clean_up: " + cleaned_sentence)
     return cleaned_sentence
-# clean_up("a1;😘2л  д") -> 'a12л д'
 
 def to_normal_form(word):
     if not ENABLE_MORPHING: 

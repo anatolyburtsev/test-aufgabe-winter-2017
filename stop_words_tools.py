@@ -6,16 +6,17 @@ def find_stop_words_dataframe(text_data, column_name):
         for word in row[column_name].split(" "):
             add2dict(dicts_list[c_id], word)
     return calculate_common_words(dicts_list)
-    
+
+
 def find_stop_words_array(text_array, categories_list):
     # dicts with amount of words
     dicts_list = [dict(), dict(), dict(), dict()]
     for i in range(len(text_array)):
-#         c_id = find_cat(categories_list[i])
         c_id = categories_list[i]
         for word in text_array[i].split(" "):
             add2dict(dicts_list[c_id], word)
     return calculate_common_words(dicts_list)
+
 
 def calculate_common_words(dicts_list):
     common_words = dict()
@@ -30,6 +31,7 @@ def calculate_common_words(dicts_list):
             common_words_list.append(k)
     return common_words_list
 
+
 def find_cat(number):
     if number < 15:
         return 0
@@ -39,7 +41,8 @@ def find_cat(number):
         return 2
     if number < 54:
         return 3
-    raise Exception()
+    raise Exception("Category id exceed limit: " + str(number))
+
 
 def add2dict(dictname, value):
     if not value in dictname:
